@@ -4,20 +4,26 @@ import java.util.Scanner;
 
 public class Lista1 {
 
-    public static void ex4(){
+    public static void ex5(){
 
 		Scanner scanner = new Scanner(System.in);
-		int numeroDigitado;
-    	int antecessor;
-    	int sucessor;
+		int larguraTerreno;
+		int comprimentoTerreno;
+		int area;
+		int valorDoM2;
 
-		System.out.println("Digite um número para saber seu antecessor e sucessor:");
-		numeroDigitado = scanner.nextInt();
+		System.out.println("Qual a largura do terreno em metros?");
+		larguraTerreno = scanner.nextInt();
 
-		antecessor = numeroDigitado - 1;
-		sucessor = numeroDigitado + 1;
+		System.out.println("Qual a comprimento do terreno em metros?");
+		comprimentoTerreno = scanner.nextInt();
 
-		System.out.println("O sucessor de "+ numeroDigitado + " é " + sucessor+ " e seu antecessor é "+ antecessor +".");
+		area = larguraTerreno * comprimentoTerreno;
+
+		System.out.println("Qual o valor do m2 na região em R$?");
+		valorDoM2 = scanner.nextInt();
+
+		System.out.println("O valor total do terreno é: R$" + (valorDoM2 * area) );
 
     }
         
