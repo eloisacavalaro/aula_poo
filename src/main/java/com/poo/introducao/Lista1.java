@@ -4,26 +4,18 @@ import java.util.Scanner;
 
 public class Lista1 {
 
-    public static void ex6(){
+    public static void ex7(){
 
 		Scanner scanner = new Scanner(System.in);
-		double nota1, nota2, nota3, nota4, media;
+		double temperaturaEmFahrenheit;
+   		double temperaturaEmCelsius;
 
-		System.out.println("Digite sua nota 1:");
-		nota1 = scanner.nextDouble();
+		System.out.println("Digite a temperatura em Fahrenheit: ");
+		temperaturaEmFahrenheit = scanner.nextDouble();
 
-		System.out.println("Digete sua nota 2: ");
-		nota2 = scanner.nextDouble();
+		temperaturaEmCelsius = (temperaturaEmFahrenheit - 32) / 1.8;
 
-		System.out.println("Digite sua nota 3: ");
-		nota3 = scanner.nextDouble();
-
-		System.out.println("Digite sua nota 4: ");
-		nota4 = scanner.nextDouble();
-
-		media = (nota1 + nota2 + nota3 + nota4) / 4;
-
-		System.out.println("A média do aluno foi:"+ media);
+		System.out.println(+temperaturaEmFahrenheit+ " oF corresponde a "+ temperaturaEmCelsius+ " oC");
 
     }
         
