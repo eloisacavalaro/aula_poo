@@ -4,21 +4,20 @@ import java.util.Scanner;
 
 public class Lista1 {
 
-    public static void ex1(){
+    public static void ex2(){
 
         Scanner scanner = new Scanner(System.in);
-		int numero1;
-		int numero2;
-		int resultado;
+		String nome; 
+		String sobrenome;
 
-		System.out.println("Digite um número: ");
-		numero1 = scanner.nextInt();
+		System.out.println("Qual é o seu nome?: ");
+		nome = scanner.nextLine();
 
-		System.out.println("Digite outro número: ");
-		numero2 = scanner.nextInt();
+		System.out.println("Qual é o seu sobrenome?: ");
+		sobrenome = scanner.nextLine();
 
-        resultado = numero1 + numero2;
-		System.out.println("A soma dos dois numeros é: " + resultado);
+		System.out.println("Olá " + nome + " "+ sobrenome + "!");
+
     }
         
         
