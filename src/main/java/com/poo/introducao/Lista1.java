@@ -4,18 +4,22 @@ import java.util.Scanner;
 
 public class Lista1 {
 
-    public static void ex7(){
+    public static void ex8(){
 
 		Scanner scanner = new Scanner(System.in);
-		double temperaturaEmFahrenheit;
-   		double temperaturaEmCelsius;
+		double distanciaPercorrida;
+		double combustivelGasto;
+		double consumoMedio;
 
-		System.out.println("Digite a temperatura em Fahrenheit: ");
-		temperaturaEmFahrenheit = scanner.nextDouble();
+		System.out.print("Digite a distância percorrida em km: ");
+        distanciaPercorrida = scanner.nextDouble();
 
-		temperaturaEmCelsius = (temperaturaEmFahrenheit - 32) / 1.8;
+		System.out.print("Digite o total de combustível gasto em litros: ");
+        combustivelGasto = scanner.nextDouble();
 
-		System.out.println(+temperaturaEmFahrenheit+ " oF corresponde a "+ temperaturaEmCelsius+ " oC");
+		consumoMedio = distanciaPercorrida / combustivelGasto;
+
+		System.out.printf("O consumo médio do veículo é: " + consumoMedio);
 
     }
         
