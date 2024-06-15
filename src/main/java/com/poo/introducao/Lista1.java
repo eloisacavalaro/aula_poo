@@ -4,26 +4,26 @@ import java.util.Scanner;
 
 public class Lista1 {
 
-    public static void ex5(){
+    public static void ex6(){
 
 		Scanner scanner = new Scanner(System.in);
-		int larguraTerreno;
-		int comprimentoTerreno;
-		int area;
-		int valorDoM2;
+		double nota1, nota2, nota3, nota4, media;
 
-		System.out.println("Qual a largura do terreno em metros?");
-		larguraTerreno = scanner.nextInt();
+		System.out.println("Digite sua nota 1:");
+		nota1 = scanner.nextDouble();
 
-		System.out.println("Qual a comprimento do terreno em metros?");
-		comprimentoTerreno = scanner.nextInt();
+		System.out.println("Digete sua nota 2: ");
+		nota2 = scanner.nextDouble();
 
-		area = larguraTerreno * comprimentoTerreno;
+		System.out.println("Digite sua nota 3: ");
+		nota3 = scanner.nextDouble();
 
-		System.out.println("Qual o valor do m2 na região em R$?");
-		valorDoM2 = scanner.nextInt();
+		System.out.println("Digite sua nota 4: ");
+		nota4 = scanner.nextDouble();
 
-		System.out.println("O valor total do terreno é: R$" + (valorDoM2 * area) );
+		media = (nota1 + nota2 + nota3 + nota4) / 4;
+
+		System.out.println("A média do aluno foi:"+ media);
 
     }
         
