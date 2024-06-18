@@ -172,12 +172,12 @@ public class Lista2 {
         divisor = scanner.nextInt();
 
         resto = dividendo % divisor;
-        resultado = dividendo / divisor;
+        resultado = (double) dividendo / divisor;
 
         if(resto == 0){
             System.out.println(dividendo + " é divisivel por " + divisor);
         } else{
-            System.out.println("Não é possível dividir " + dividendo + " por " + divisor + "o resultado seria :"+ resultado );
+            System.out.println("Não é possível dividir " + dividendo + " por " + divisor + ".  resultado seria :"+ resultado );
         }
        
 
@@ -217,6 +217,10 @@ public class Lista2 {
         if(resposta3 != 2){
             chances--;
         }
+        if (chances == 0) {
+            System.out.println("Você perdeu.");
+            return;
+        }
 
         System.out.println("Qual as cores primarias?\n");
         System.out.println("1) Azul, verde e roxo\n");
@@ -224,11 +228,14 @@ public class Lista2 {
         System.out.println("3) Nenhuma das anteriores\n");
         resposta4 = scanner.nextInt();
 
+
+        if (resposta4 != 2) {
+            chances--;
+        }
         if( chances == 0){
             System.out.println("Você perdeu.");
-        } else if(resposta4 != 2){
-                chances--;
-            }
+            return;
+        } 
         
         System.out.println("Quem foi a primeira pessoa a pisar na lua?\n");
         System.out.println("1) Yuri Gagarin\n");
@@ -236,7 +243,7 @@ public class Lista2 {
         System.out.println("3) Nenhuma das anteriores\n");
         resposta5 = scanner.nextInt();
 
-        if(resposta4 != 2){
+        if(resposta5 != 2){
                 System.out.println("Você perdeu.");
         }else { 
                 System.out.println("Parabéns, você venceu!!! ");
