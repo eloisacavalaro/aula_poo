@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Lista3 {
 
-    /**
-     * 
-     */
     public static void ex1 (){
 
         Scanner scanner = new Scanner(System.in);
@@ -53,9 +50,7 @@ public class Lista3 {
 
 
 
-        } /**
-         * 
-         */
+        } 
         public static void ex3 () {
             Scanner scanner = new Scanner(System.in);
             int numero1, numero2;
@@ -82,7 +77,7 @@ public class Lista3 {
         Scanner scanner = new Scanner(System.in);
         int numeroEscolhido;
         int numeroTentativa;
-        int tentativa = 0;
+        int tentativa = 3;
         int diferenca;
 
         do{
@@ -106,16 +101,89 @@ public class Lista3 {
             }else if (diferenca > 20) {
                 System.out.println("Muito alto.");
             }
-        } while(numeroTentativa != numeroEscolhido);
+        } while (numeroTentativa != numeroEscolhido);
 
 
 
     }
+    public static void ex5 () {
+
+        Scanner scanner = new Scanner(System.in);
+        String loginCorreto = "eloisa";
+        String senhaCorreta = "123";
+        int tentativa = 3;
+
+        do {
+
+        System.out.print("Digite seu login: ");
+        String login = scanner.nextLine();
+
+        System.out.print("Digite sua senha: ");
+        String senha = scanner.nextLine();
+
+        boolean loginIncorreto = !login.equals(loginCorreto);
+        boolean senhaIncorreta = !senha.equals(senhaCorreta);
+
+            if (!loginIncorreto && !senhaIncorreta) {
+            System.out.println("Login bem-sucedido!");
+            break;
+            } else if (loginIncorreto) {
+                System.out.println("Login incorreto.");
+                tentativa--;
+            } else if (senhaIncorreta) {
+                System.out.println("Senha incorreta.");
+                tentativa--;
+            } 
+        } while ( tentativa > 0);
+
+        if(tentativa == 0){
+            System.out.println("Suas tentativas acabaram. Acesso bloqueado.");
+        }
+
+
+    }
+    public static void ex6(){
+
+        Scanner scanner = new Scanner(System.in);
+        int numeroDeAndares;
+
+        System.out.println("Digite o número de andares desejado: ");
+        numeroDeAndares = scanner.nextInt();
+
+        for (int i = 1; i <= numeroDeAndares; i++) {
+            for (int j = 0; j < numeroDeAndares - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 0; k < (2 * i - 1); k++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
 
 
 
 
 
+    } 
+    public static void ex7(){
+
+        Scanner scanner = new Scanner(System.in);
+        int largura;
+        int altura;
+
+        System.out.println("Digite a largura do retângulo: ");
+        largura = scanner.nextInt();
+
+        System.out.println("Digite a altura do retângulo: ");
+        altura = scanner.nextInt();
+
+        for (int i = 0; i < altura; i++) {
+            for (int j = 0; j < largura; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+    }
+}
 }
 
 

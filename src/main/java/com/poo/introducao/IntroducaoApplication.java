@@ -14,10 +14,14 @@ public class IntroducaoApplication {
 
 
 		Lista3 lista3 = new Lista3();
+
 		lista3.ex1();
 		lista3.ex2();
 		lista3.ex3();
 		lista3.ex4();
+		lista3.ex5();
+		lista3.ex6();
+		lista3.ex7();
 		
 
 		finaliza();
