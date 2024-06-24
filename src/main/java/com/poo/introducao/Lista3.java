@@ -161,9 +161,6 @@ public class Lista3 {
         }
 
 
-
-
-
     } 
     public static void ex7(){
 

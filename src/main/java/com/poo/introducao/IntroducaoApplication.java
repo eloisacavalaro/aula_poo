@@ -13,15 +13,14 @@ public class IntroducaoApplication {
 		limpa_windows();
 
 
-		Lista3 lista3 = new Lista3();
+		Lista4 lista4 = new Lista4();
 
-		lista3.ex1();
-		lista3.ex2();
-		lista3.ex3();
-		lista3.ex4();
-		lista3.ex5();
-		lista3.ex6();
-		lista3.ex7();
+		lista4.ex1();
+		lista4.ex2();
+		lista4.ex3();
+		lista4.ex4();
+		lista4.exsDo5ao7();
+		lista4.ex8();
 		
 
 		finaliza();
