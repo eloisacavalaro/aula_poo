@@ -139,8 +139,6 @@ public class Lista3 {
         if(tentativa == 0){
             System.out.println("Suas tentativas acabaram. Acesso bloqueado.");
         }
-
-
     }
     public static void ex6(){
 
@@ -160,8 +158,8 @@ public class Lista3 {
             System.out.println();
         }
 
+    }
 
-    } 
     public static void ex7(){
 
         Scanner scanner = new Scanner(System.in);
@@ -182,16 +180,4 @@ public class Lista3 {
     }
 }
 }
-
-
-
-
-        
-
-        
-      
-    
-
-
-   
 

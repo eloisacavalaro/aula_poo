@@ -10,6 +10,7 @@ public class Lista4 {
 
     private static  String[] lista = new String[10];
     private static int itensLista = 0;
+    static double[] precos = new double[10];
 
     public static void ex1 (){
 
@@ -63,97 +64,122 @@ public class Lista4 {
         System.out.println("Os números pares são: " + numerosPares);
 
     }
-    public static void exsDo5ao7 (){
+    public static void exsDo5ao8 (){
 
         menu();
-
     }
-    public static void menu(){
 
+    public static void menu() {
         Scanner scanner = new Scanner(System.in);
         int alternativa;
         boolean opcao = true;
 
-        do{
-
+        do {
             System.out.println("===== Olá, seja bem-vindo a sua lista de compra! =====");
-            System.out.println("Selecione uma das alternativas abaixo abaixo: ");
+            System.out.println("Selecione uma das alternativas abaixo: ");
             System.out.println("1 - Adicionar um item a lista de compras.");
-            System.out.println("2 - Vizualizar a lista de compras.");
-            System.out.println("3 - Desejo sair do app.");
+            System.out.println("2 - Visualizar a lista de compras.");
+            System.out.println("3 - Visualizar a lista de compras por ordem de preço.");
+            System.out.println("4 - Desejo sair do app.");
             alternativa = scanner.nextInt();
 
-            if(alternativa == 1){
+            if (alternativa == 1) {
                 adicionarItem();
-            } else if (alternativa == 2){
-                vizualizarlista();
-            } else if ( alternativa == 3){
-                opcao= false;
+            } else if (alternativa == 2) {
+                visualizarLista();
+            } else if (alternativa == 3) {
+                visualizarListaPorPreco();
+            } else if (alternativa == 4) {
+                opcao = false;
                 System.out.println("Saindo do app...");
             } else {
-                System.out.println("Opção invalida. Voltando ao menu.");
-                menu();
+                System.out.println("Opção inválida. Voltando ao menu.");
             }
+        } while (opcao);
+    }
 
-        } while ( opcao);
-
-    } public static void adicionarItem() {
-
+    public static void adicionarItem() {
         Scanner scanner = new Scanner(System.in);
         String opcao;
         String itemRemover;
         int i = 0;
 
         do {
-            System.out.println("Qual item deseja adicionar a sua lista de compras? ");
+            if (itensLista >= lista.length) {
+                System.out.println("Lista cheia! Não é possível adicionar mais itens.");
+                return;
+            }
+
+            System.out.println("Qual item deseja adicionar a sua lista de compras?");
             lista[itensLista] = scanner.nextLine();
+
+            System.out.println("Qual é o preço do item?");
+            precos[itensLista] = scanner.nextDouble();
+            scanner.nextLine();
+
             itensLista++;
 
-            System.out.println("Deseja adicionar mais algum item a sua lista de compras? ");
+            System.out.println("Deseja adicionar mais algum item a sua lista de compras? (Sim/Não)");
             opcao = scanner.nextLine();
 
-        } while (opcao.equalsIgnoreCase("Sim") && i <10);
+        } while (opcao.equalsIgnoreCase("Sim") && itensLista < lista.length);
 
-        do{
-            System.out.println("Deseja remover algum item da lista? ");
+        do {
+            System.out.println("Deseja remover algum item da lista? (Sim/Não)");
             opcao = scanner.nextLine();
 
-        if(opcao.equalsIgnoreCase("Sim")){ 
-            System.out.println("Qual item deseja remover da sua lista?");
-            itemRemover = scanner.nextLine();
-            removerItem(itemRemover);
-        } 
-        } while(opcao.equalsIgnoreCase("Sim")); 
+            if (opcao.equalsIgnoreCase("Sim")) {
+                System.out.println("Qual item deseja remover da sua lista?");
+                itemRemover = scanner.nextLine();
+                removerItem(itemRemover);
+            }
+        } while (opcao.equalsIgnoreCase("Sim"));
+    }
 
-    } public static void vizualizarlista() {
+    public static void visualizarLista() {
+        for (int i = 0; i < itensLista; i++) {
+            System.out.println((i + 1) + " - " + lista[i] + " - R$" + precos[i]);
+        }
+    }
 
-        for(int i = 0; i<itensLista; i++){
-            System.out.println((i+1) + " - " + lista[i]);
+    public static void visualizarListaPorPreco() {
+        String[] listaOrdem = Arrays.copyOf(lista, itensLista);
+        double[] precosOrdemCrescente = Arrays.copyOf(precos, itensLista);
+
+        for (int i = 0; i < itensLista - 1; i++) {
+            for (int j = 0; j < itensLista - i - 1; j++) {
+                if (precosOrdemCrescente[j] > precosOrdemCrescente[j + 1]) {
+                    double tempPreco = precosOrdemCrescente[j];
+                    precosOrdemCrescente[j] = precosOrdemCrescente[j + 1];
+                    precosOrdemCrescente[j + 1] = tempPreco;
+
+                    String tempItem = listaOrdem[j];
+                    listaOrdem[j] = listaOrdem[j + 1];
+                    listaOrdem[j + 1] = tempItem;
+                }
+            }
         }
 
+        for (int i = 0; i < itensLista; i++) {
+            System.out.println((i + 1) + " - " + listaOrdem[i] + " - R$" + precosOrdemCrescente[i]);
+        }
     }
+
     public static void removerItem(String item) {
         for (int i = 0; i < itensLista; i++) {
             if (lista[i].equalsIgnoreCase(item)) {
                 for (int j = i; j < itensLista - 1; j++) {
                     lista[j] = lista[j + 1];
+                    precos[j] = precos[j + 1];
                 }
                 lista[itensLista - 1] = null;
+                precos[itensLista - 1] = 0;
                 itensLista--;
                 System.out.println("Item removido com sucesso!");
                 return;
             }
         }
-
-    } public static void ex8 (){
-
-        double[] vendasDia = {3.50, 10.50, 15, 9, 1, 3.55, 7.25, 50, 30};
-
-        Arrays.sort(vendasDia);
-
-        for(int i = 0; i<(vendasDia.length); i++){
-            System.out.println((i+1) + " - " + vendasDia[i]);
-        }
-    
+        System.out.println("Item não encontrado na lista.");
     }
+
 }
